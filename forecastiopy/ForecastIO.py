@@ -69,7 +69,7 @@ class ForecastIO(object):
     LANG_RUSSIAN = 'ru'
 
     def __init__(self, apikey, extend=None, exclude=None, units=UNITS_AUTO, \
-    lang=LANG_ENGLISH, latitude=None, longitude=None):
+    lang=LANG_ENGLISH, latitude=None, longitude=None, time_url=None):
         """
         A valid api key must be provided in the object instantiation.
         Other options are available.
@@ -86,6 +86,7 @@ class ForecastIO(object):
             self.lang_url = lang
             self.latitude = latitude
             self.longitude = longitude
+            self.time_url = time_url
             if latitude is not None and longitude is not None:
                 self.get_forecast(latitude, longitude)
             else:
@@ -104,7 +105,7 @@ class ForecastIO(object):
 
         for item in self.forecast.keys():
             setattr(self, item, self.forecast[item])
-
+            
     def url_builder(self, latitude, longitude):
         """
         This function is used to build the correct url to make the request
@@ -167,7 +168,7 @@ class ForecastIO(object):
         except requests.exceptions.RequestException as ex:
             print(ex)
             sys.exit(1)
-
+            
         try:
             self.cache_control = response.headers['Cache-Control']
             self.expires = response.headers['Expires']
