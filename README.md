@@ -7,7 +7,14 @@ are not using Python 3, make sure to use [his version](https://github.com/dvdme/
 ####Quick Start:
 Install the package:
 ```
-python setup.py install
+sudo python3 setup.py install 
+
+But this may not work either, yielding an error message like the following on on Raspbian stretch: 
+
+Traceback (most recent call last):
+  File "setup.py", line 1, in <module>
+    from setuptools import setup
+ImportError: No module named 'setuptools'
 ```
 
 Get the coordinates of your location, let's say Lisbon:
