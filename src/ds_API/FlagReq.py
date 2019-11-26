@@ -1,9 +1,9 @@
 class FlagReq(object):
     flags = None
 
-    def __init__(self, weather_req):
-        if weather_req.has_flags():
-            self.flags = weather_req.gFlags()
+    def __init__(self, WeatherReq):
+        if WeatherReq.has_flags():
+            self.flags = WeatherReq.gFlags()
             for item in self.flags.keys():
                 setattr(self, item, self.flags[item])
 

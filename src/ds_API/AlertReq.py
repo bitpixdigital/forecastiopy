@@ -1,9 +1,9 @@
 class AlertReq(object):
     alerts = None
-    def __init__(self, weather_req):
+    def __init__(self, WeatherReq):
 
-        if weather_req.has_alerts():
-            self.alerts = weather_req.gAlerts()
+        if WeatherReq.has_alerts():
+            self.alerts = WeatherReq.gAlerts()
 
     def get(self, alert=None):
 

@@ -1,11 +1,11 @@
 class HourReq(object):
     hourly = None
 
-    def __init__(self, weather_req):
-        if weather_req.has_hourly():
-            self.hourly = weather_req.hourly()
-            for item in weather_req.hourly().keys():
-                setattr(self, item, weather_req.hourly()[item])
+    def __init__(self, WeatherReq):
+        if WeatherReq.has_hourly():
+            self.hourly = WeatherReq.hourly()
+            for item in WeatherReq.hourly().keys():
+                setattr(self, item, WeatherReq.hourly()[item])
             for hour in range(0, self.hours()):
                 for item in self.hour().keys():
                     setattr(self, 'hour_' + str(hour + 1) + '_' + item,
@@ -15,7 +15,7 @@ class HourReq(object):
         if self.hour is None:
             return self.hourly
         else:
-            return self.get_hour(self.hour)
+            return self.hour(self.hour)
 
     def hour(self):
         if self.hour > self.hours():

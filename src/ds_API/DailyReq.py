@@ -1,11 +1,11 @@
 class DailyReq(object):
     daily = None
 
-    def __init__(self, weather_req):
-        if weather_req.has_hourly():
-            self.daily = weather_req.gDaily()
-            for item in weather_req.gDaily().keys():
-                setattr(self, item, weather_req.gDaily()[item])
+    def __init__(self, WeatherReq):
+        if WeatherReq.has_hourly():
+            self.daily = WeatherReq.gDaily()
+            for item in WeatherReq.gDaily().keys():
+                setattr(self, item, WeatherReq.gDaily()[item])
             for day in range(0, self.days()):
                 for item in self.gDay(day).keys():
                     setattr(self, 'hour_' + str(day + 1) + '_' + item,
