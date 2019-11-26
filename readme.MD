@@ -1,6 +1,6 @@
-Weatherly - Weather App that uses the DarkSkyWeather API
+Weatherly - A Weather App that uses Darksky API
 ===
-This is a Python 3 wrapper for the Darksky API.
+Python 3 wrapper for Darksky API
 
 Installation steps
 ***
