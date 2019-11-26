@@ -30,7 +30,7 @@ Get the temperature for this hour in Dublin.
 
 ```python
 import src.ds_API.WeatherReq as WeatherReq
-import sec.ds_API.HourReq as HourReq
+import src.ds_API.HourReq as HourReq
 Dublin = [53.3244431,-6.3857877]
 API_KEY=""
     req = WeatherReq.WeatherReq(API_KEY, latitude=Dublin[0], longitude=Dublin[1])
